@@ -1,0 +1,20 @@
+the modulus operator take the sign of the numerator
+
+write a program to print numbers from 1 to 10 and repeat from form till end number is given:
+aternate methods
+// method 1
+for (int i=0; i<n;i++){
+printf("%d\n",i%5);
+
+// method 2
+for (count=1;count<=n;count++){
+i++;
+print("%d",i);
+if (i==4){
+i=o;
+}
+}
+}
+
+HW write a program to print 123 123 till end number
+HW write a program to print values from start and end values
