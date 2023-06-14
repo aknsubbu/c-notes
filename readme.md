@@ -1065,26 +1065,26 @@ printf("%d \n %d \n %d \n %d \n %d  \n %p\n %p \n",n1[0],n1[1],n1[2],n1[3],n2,p1
 
 Storage Classes in C
 
-1. Automatic Storage Classes in C : (auto)
-   Scope- Local
-   Default- Garbage Value
-   Lifetime- Within a function or value
+1. Automatic Storage Classes in C : (auto)   
+   Scope- Local    
+   Default- Garbage Value   
+   Lifetime- Within a function or value   
    Every variable defined in a function or block belongs to automatic storage class by default. The variable of the block belong to the block and are declared with the auto specifier. The variables are destroyed when the control exits the block.
-2. Register Storage Classes in C : (register)
-   Scope- Local
-   Default- Garbage value
-   Lifetime- Within the function 
+2. Register Storage Classes in C : (register)   
+   Scope- Local    
+   Default- Garbage value    
+   Lifetime- Within the function      
    They are equivalent to auto class in c but are stored in the CPU registers and not the storage. These varibale can be quickly accessed as they are in the CPU register. The are usually reserved for frequently used variables. Variables of this class are local to the block inwhich they are defined. They are destroyed as soon as the control exits the block. We cannot get the address of a register varibale and they are not given a initial value unless specified.
 3. Static Storage Classes in C : (static)
-   Scope- Local/Global
-   Default- Zero
-   Lifetime- Till the program ends
+   Scope- Local/Global     
+   Default- Zero      
+   Lifetime- Till the program ends       
    Static functions are within a function or a file depended on whether it is a local or global variable. They are not destroyed when the control exits the block. They are initialized to 0 if not initialized. They are initialized only once. They are stored in the data segment of the memory.
    Local Varibale : - They are contained inside a specific block or function, a permanent storage space is created in the compiler. The stati local variable is visible to the function or the block it is a part of. They retain their old values and donot change their values on reentering the function or block.
    Global Variable: - They are contained in a file, a permanent storage space is created in the compiler. The static global variable is visible to all the functions in the file. They retain their old values and donot change their values on reentering the function or block.
-4. External Storage Classes in C : (extern)
-   Scope- Global
-   Default- Zero
-   Lifetime- TIll the program ends
-   External storage class allows us to define a variable that is specified but not initialized there. It siginifies to the complier that it hass already been initialized somewhere else. This allows us to assign/ initialize the value of the variable even after using it and it will give a uniform answer throughtout the program.It can be used to share data between multiple files. It is used to declare a global variable or function in another file.
+4. External Storage Classes in C : (extern)    
+   Scope- Global    
+   Default- Zero     
+   Lifetime- TIll the program ends    
+   External storage class allows us to define a variable that is specified but not initialized there. It siginifies to the complier that it hass already been initialized somewhere else. This allows us to assign/ initialize the value of the variable even after using it and it will give a uniform answer throughtout the program.It can be used to share data between multiple files. It is used to declare a global variable or function in another file.    
 
