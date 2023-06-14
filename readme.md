@@ -1075,7 +1075,7 @@ Storage Classes in C
    Default- Garbage value    
    Lifetime- Within the function      
    They are equivalent to auto class in c but are stored in the CPU registers and not the storage. These varibale can be quickly accessed as they are in the CPU register. The are usually reserved for frequently used variables. Variables of this class are local to the block inwhich they are defined. They are destroyed as soon as the control exits the block. We cannot get the address of a register varibale and they are not given a initial value unless specified.
-3. Static Storage Classes in C : (static)
+3. Static Storage Classes in C : (static)    
    Scope- Local/Global     
    Default- Zero      
    Lifetime- Till the program ends       
