@@ -1062,29 +1062,144 @@ printf("%d \n %d \n %d \n %d \n %d  \n %p\n %p \n",n1[0],n1[1],n1[2],n1[3],n2,p1
 }
 ```
 
-
 Storage Classes in C
 
-1. Automatic Storage Classes in C : (auto)   
-   Scope- Local    
-   Default- Garbage Value   
-   Lifetime- Within a function or value   
+1. Automatic Storage Classes in C : (auto)
    Every variable defined in a function or block belongs to automatic storage class by default. The variable of the block belong to the block and are declared with the auto specifier. The variables are destroyed when the control exits the block.
-2. Register Storage Classes in C : (register)   
-   Scope- Local    
-   Default- Garbage value    
-   Lifetime- Within the function      
+2. Register Storage Classes in C : (register)
    They are equivalent to auto class in c but are stored in the CPU registers and not the storage. These varibale can be quickly accessed as they are in the CPU register. The are usually reserved for frequently used variables. Variables of this class are local to the block inwhich they are defined. They are destroyed as soon as the control exits the block. We cannot get the address of a register varibale and they are not given a initial value unless specified.
-3. Static Storage Classes in C : (static)    
-   Scope- Local/Global     
-   Default- Zero      
-   Lifetime- Till the program ends       
-   Static functions are within a function or a file depended on whether it is a local or global variable. They are not destroyed when the control exits the block. They are initialized to 0 if not initialized. They are initialized only once. They are stored in the data segment of the memory.    
-   Local Variable : - They are contained inside a specific block or function, a permanent storage space is created in the compiler. The stati local variable is visible to the function or the block it is a part of. They retain their old values and donot change their values on reentering the function or block.       
+3. Static Storage Classes in C : (static)
+   Static functions are within a function or a file depended on whether it is a local or global variable. They are not destroyed when the control exits the block. They are initialized to 0 if not initialized. They are initialized only once. They are stored in the data segment of the memory.
+   Local Varibale : - They are contained inside a specific block or function, a permanent storage space is created in the compiler. The stati local variable is visible to the function or the block it is a part of. They retain their old values and donot change their values on reentering the function or block.
    Global Variable: - They are contained in a file, a permanent storage space is created in the compiler. The static global variable is visible to all the functions in the file. They retain their old values and donot change their values on reentering the function or block.
-4. External Storage Classes in C : (extern)    
-   Scope- Global    
-   Default- Zero     
-   Lifetime- TIll the program ends    
-   External storage class allows us to define a variable that is specified but not initialized there. It siginifies to the complier that it hass already been initialized somewhere else. This allows us to assign/ initialize the value of the variable even after using it and it will give a uniform answer throughtout the program.It can be used to share data between multiple files. It is used to declare a global variable or function in another file.    
+4. External Storage Classes in C : (extern)
+   External storage class allows us to define a variable that is specified but not initialized there. It siginifies to the complier that it hass already been initialized somewhere else. This allows us to assign/ initialize the value of the variable even after using it and it will give a uniform answer throughtout the program.It can be used to share data between multiple files. It is used to declare a global variable or function in another file.
 
+Multi-Dimensional Pointers: -
+
+- Here
+
+Create a simple array of pointers for a matrix of 4x4 integers.
+
+```cint main(){
+    int array[4];
+    int *p[4];
+    int a=4,b=5,c=4,d=6;
+    p[0]=&array[0];
+    p[1]=&array[1];
+    p[2]=&array[2];
+    p[3]=&array[3];
+    for (int i = 0; i < 4; i++)
+        printf("%p\n", p[i]);
+
+
+}
+```
+
+Add pointers to independent variables into an array of pointers
+
+```c
+int main(){
+    int array[4];
+    int *p[4];
+    int a=4,b=5,c=4,d=6;
+    p[0]=&a;
+    p[1]=&b;
+    p[2]=&c;
+    p[3]=&d;
+    for (int i = 0; i < 4; i++){
+        printf("%p\n", p[i]);
+        printf("%d\n",*p[i]);
+    }
+}
+```
+
+Create a pointer to a two dimensional array : This creates and iterates through the first elements of the subarray and prints the values of the first elements
+
+```c
+int main(){
+    int arr[3][3]={
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+    };
+    int (*p)[3]=arr;
+    for (int i = 0; i < 3; i++){
+        printf("%p\n", p[i]);
+        printf("%d\n",*p[i]);
+
+    }
+}
+```
+
+Create a pointer to a two dimensional array and print the values of all the elements
+
+```c
+int main(){
+    int arr[3][3]={
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+    };
+    int (*p)[3]=arr;
+    for (int i = 0; i < 3; i++){
+        //printf("%p\n", p[i]);
+        //printf("%d\n",*p[i]);
+        for (int j=0;j<3;j++){
+            //**IMPORTANT**
+            printf("%d\n",*(*(p+i)+j));
+        }
+    }
+}
+```
+
+Create an array of pointers which point to float values
+
+```c
+int main(){
+    float *ptr[5];
+    float a=1.2,b=2.4,c=3.6,d=4.8,e=6.0;
+    ptr[0]=&a;
+    ptr[1]=&b;
+    ptr[2]=&c;
+    ptr[3]=&d;
+    ptr[4]=&e;
+    //print the 4th element
+    printf("%f\n",*ptr[3]);
+    //print the address at which 2.4 is located
+    printf("%p\n",ptr[3]);
+}
+```
+
+Note: Here p [ 3 ] and 3 [ p ] both will work as will p+3 and 3+p as they are mathematical equivalents to each other
+
+Write a simple program to create a structure of the items in the store which tells us the name of the item, no of items and unit price.
+
+```c
+struct Item{
+    char name[100];
+    int quantity;
+    int price;
+};
+int findQuant(struct Item items[],int size){
+    char str[100];
+    printf("Enter the name of the element to find the price: ");
+    gets(str);
+    for(int i=0;i<size;i++){
+        if(!(strcmp(str,items[i].name))){
+            printf("The price of the item is: %d\n",items[i].price);
+            printf("The quantity of the specified items are: %d\n",items[i].quantity);
+        }
+    }
+}
+int main(){
+    struct Item soap[5]={
+             {"Soap1",100,100},
+             {"Soap2",100,100},
+             {"Soap3",100,100},
+             {"Soap4",100,100},
+             {"Soap5",100,100}};
+    findQuant(soap,5);
+
+}
+```
