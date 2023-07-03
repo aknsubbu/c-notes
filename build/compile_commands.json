@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/workspaces/c-notes/build",
+  "command": "/usr/bin/gcc   -g -std=gnu11 -o CMakeFiles/C.dir/main.c.o -c /workspaces/c-notes/main.c",
+  "file": "/workspaces/c-notes/main.c",
+  "output": "CMakeFiles/C.dir/main.c.o"
+},
+{
+  "directory": "/workspaces/c-notes/build",
+  "command": "/usr/bin/gcc   -g -std=gnu11 -o CMakeFiles/C.dir/18th_april.c.o -c \"/workspaces/c-notes/18th april.c\"",
+  "file": "/workspaces/c-notes/18th april.c",
+  "output": "CMakeFiles/C.dir/18th_april.c.o"
+},
+{
+  "directory": "/workspaces/c-notes/build",
+  "command": "/usr/bin/gcc   -g -std=gnu11 -o CMakeFiles/C.dir/class_two.c.o -c /workspaces/c-notes/class_two.c",
+  "file": "/workspaces/c-notes/class_two.c",
+  "output": "CMakeFiles/C.dir/class_two.c.o"
+},
+{
+  "directory": "/workspaces/c-notes/build",
+  "command": "/usr/bin/gcc   -g -std=gnu11 -o CMakeFiles/C.dir/11th_april.c.o -c \"/workspaces/c-notes/11th april.c\"",
+  "file": "/workspaces/c-notes/11th april.c",
+  "output": "CMakeFiles/C.dir/11th_april.c.o"
+},
+{
+  "directory": "/workspaces/c-notes/build",
+  "command": "/usr/bin/gcc   -g -std=gnu11 -o CMakeFiles/C.dir/april.c.o -c /workspaces/c-notes/april.c",
+  "file": "/workspaces/c-notes/april.c",
+  "output": "CMakeFiles/C.dir/april.c.o"
+},
+{
+  "directory": "/workspaces/c-notes/build",
+  "command": "/usr/bin/gcc   -g -std=gnu11 -o CMakeFiles/C.dir/may.c.o -c /workspaces/c-notes/may.c",
+  "file": "/workspaces/c-notes/may.c",
+  "output": "CMakeFiles/C.dir/may.c.o"
+},
+{
+  "directory": "/workspaces/c-notes/build",
+  "command": "/usr/bin/gcc   -g -std=gnu11 -o CMakeFiles/C.dir/25th_april_and_26th_april.c.o -c \"/workspaces/c-notes/25th april and 26th april.c\"",
+  "file": "/workspaces/c-notes/25th april and 26th april.c",
+  "output": "CMakeFiles/C.dir/25th_april_and_26th_april.c.o"
+}
+]

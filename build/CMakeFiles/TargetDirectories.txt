@@ -1,0 +1,3 @@
+/workspaces/c-notes/build/CMakeFiles/C.dir
+/workspaces/c-notes/build/CMakeFiles/edit_cache.dir
+/workspaces/c-notes/build/CMakeFiles/rebuild_cache.dir
