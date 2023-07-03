@@ -82,6 +82,30 @@ void towerOfHanoi(int n, char source, char destination, char auxiliary) {
     towerOfHanoi(n - 1, auxiliary, destination, source);
 }
 
+//7 
+// Write a function that accepts a pointer to a string and removes all the vowels from the string,
+// modifying it in-place.
+int isVowel(char ch) {
+    ch = tolower(ch);
+    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+}
+
+void removeVowels(char *str) {
+    if (str == NULL) {
+        return;
+    }
+
+    int len = strlen(str);
+    int i, j;
+
+    for (i = 0, j = 0; i < len; i++) {
+        if (!isVowel(str[i])) {
+            str[j++] = str[i];
+        }
+    }
+
+    str[j] = '\0';
+}
 //9
 // Write a function that accepts a pointer to a 2D array of integers and rotates the array 90 degrees
 // clockwise in-place
