@@ -1203,3 +1203,116 @@ int main(){
 
 }
 ```
+# File Pointer 
+Opening a File: -   
+```c
+file_pointer=fopen("file name","mode");
+```
+Closing a file: -   
+```c
+fclose(file_pointer);
+```
+Modes: -   
+1. Read Mode (r): We can use this to read he data from within a file. We can use fgets() to get the data from the file. If we try to read from a file that does not exist the it will return an error. So we add an error handler code snippet
+```c
+if (file_pointer==NULL){
+    printf("File doesn't exist");
+}
+```
+```c
+fgets(data from file, MAX LENGTH of the file, file pointer);
+```
+2. Write Mode (w): We can use this to write data to a file. If the file does not exist then it will create a new file. If the file already exists then it will overwrite the data in the file. We can use fputs() to write data to a file. It takes the pointer to the beggining of the file.
+```c   
+fputs(data to be written, file pointer);
+```
+3. Append Mode (a): We can use this to write data to a file. If the file does not exist then it will create a new file. If the file already exists then it will append the data to the end of the file. We can use fputs() to write data to a file. It takes the pointer to the end of the file.
+
+
+Commands and Methods in File Operations: -   
+1. __fscan__ : - This is used to scan the data from the file.
+```c    
+fscanf(file_pointer,"%d",&variable);
+```
+
+2. __fprint__: - This is used to print the data to the file.  
+```c
+fprintf(file_pointer,"%d",variable);
+```
+3. __fgetc__: - This is used to get a single character from the file.
+```c
+fgetc(file_pointer);
+```
+4. __fputc__: - This is used to put a single character into the file.  
+```c
+fputc('a',file_pointer);
+```
+5. ___fseek___: - This is used to move the file pointer to a specific location.
+```c
+fseek(file_pointer,0,SEEK_END);
+```
+6. __ftell__: - This is used to tell the current location of the file pointer. 
+```c
+ftell(file_pointer);
+```
+7. __rewind__: - This is used to move the file pointer to the beginning of the file.
+```c
+rewind(file_pointer);
+```
+8. __feof__: - This is used to check if the file pointer is at the end of the file. 
+```c
+feof(file_pointer);
+```
+9. __ferror__: -  This is used to check if there is an error in the file. 
+```c
+ferror(file_pointer);
+```
+10. __clearerr__: - This is used to clear the error in the file.
+```c
+clearerr(file_pointer);
+```
+___
+Basic Read and Write Operation
+```c
+void main(){
+    char str[100],data[100];
+    FILE *fptr,*ptr;
+    fptr=fopen("test.txt","w");
+    gets(str);
+    fputs(str,fptr);
+    fclose(fptr);
+    ptr=fopen("test.txt","r");
+    fgets(data,sizeof(data),ptr);
+    printf("%s",str);
+}
+```
+Reading a file charecter by charecter
+```c
+void main(){
+    char str[100],data[100];
+    FILE *fptr,*ptr;
+    ptr=fopen("text.txt","r");
+//    fgets(data,sizeof(data),ptr);
+char x;
+do{
+    x=fgetc(ptr);
+    printf("%c",x);
+}while(x!= EOF || NULL);
+}
+```
+Multiple Line read and return data along with position of the pointer
+```c
+void main(){
+    int pos;
+    char str[100],data[100];
+    FILE *ptr;
+    ptr=fopen("text.txt","r");
+while(fgets(data,sizeof(data),ptr)){
+    pos=ftell(ptr);
+    printf("%s\n",str);
+    printf("Positon of the pointer is: ")
+    printf("%d\n",pos);
+}
+
+}    
+```
