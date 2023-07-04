@@ -1271,6 +1271,14 @@ ferror(file_pointer);
 ```c
 clearerr(file_pointer);
 ```
+11. __fread__: - This is used to read a block of data from the file.
+```c
+fread(data,sizeof(data),1,file_pointer);
+```
+12. __fwrite__: - This is used to write a block of data to the file.
+```c
+fwrite(data,sizeof(data),1,file_pointer);
+```
 ___
 Basic Read and Write Operation
 ```c
@@ -1315,4 +1323,38 @@ while(fgets(data,sizeof(data),ptr)){
 }
 
 }    
+```
+Writing a structure to a binary file
+```c
+struct Item{
+    char name[20];
+    int price;
+    int quantity;
+};
+void main(){
+    FILE *ptr;
+    struct Item x={
+        "Apple",
+        100,
+        10
+    };
+    ptr=fopen("items.bin","wb");
+    fwrite(&x,sizeof(struct Item),1,ptr);
+}
+```
+Reading a structure from a binary file
+```c
+#include <stdio.h>
+struct Item{
+    char name[20];
+    int price;
+    int quantity;
+};
+void main(){
+    FILE *ptr;
+    struct Item x;
+    ptr=fopen("items.bin","rb");
+    fread(&x,sizeof(x),1,ptr);
+    printf("Name: %s\nPrice: %d\nQuantity: %d\n",x.name,x.price,x.quantity);
+}
 ```
