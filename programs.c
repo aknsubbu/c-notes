@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 struct Item{
     char name[20];
     int price;
@@ -6,8 +7,30 @@ struct Item{
 };
 void main(){
     FILE *ptr;
-    struct Item x;
-    ptr=fopen("items.bin","rb");
-    fread(&x,sizeof(x),1,ptr);
-    printf("Name: %s\nPrice: %d\nQuantity: %d\n",x.name,x.price,x.quantity);
+    int n=5;
+    struct Item x[5]={
+        {"Apple",
+        100,
+        10},
+        {
+        "Banana",
+        50,
+        20},
+        {
+        "Orange",
+        80,
+        30},
+        {
+        "Mango",
+        120,
+        40},
+        {
+        "Grapes",
+        150,
+        50
+    
+        }
+    };
+    ptr=fopen("items.bin","wb");
+    fwrite(&x,sizeof(struct Item),n,ptr);
 }
