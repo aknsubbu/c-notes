@@ -1,6 +1,7 @@
 // Write a function that accepts a pointer to a string and removes all the vowels from the string,
 // modifying it in-place.
 #include <stdio.h>
+#include <ctype.h>
 
 int isVowel(char ch) {
     ch = tolower(ch);
