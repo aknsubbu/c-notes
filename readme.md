@@ -1358,3 +1358,121 @@ void main(){
     printf("Name: %s\nPrice: %d\nQuantity: %d\n",x.name,x.price,x.quantity);
 }
 ```
+
+Writing a number to a file using fprintf
+```c
+#include <stdio.h>
+void main(){
+    FILE *ptr;
+    ptr=fopen("text.txt","w");
+    int integer=5;
+    fprintf(ptr,"The integer is %d",integer);
+    fclose(ptr);
+}
+
+```
+Reading an integer from a file usding fscanf
+```c
+#include <stdio.h>
+int main(){
+    FILE *ptr;
+    int num;
+    ptr=fopen("text.txt","r");
+    if (ptr==NULL){
+        printf("The file does not exist\n");
+    } else{
+        printf("The file exists\n");
+    };
+    fscanf(ptr,"%d",&num);
+    printf("The value of a is %d\n",num);
+    fclose(ptr);
+    return 0;
+}
+```
+Create a program to write the details of students to a file and then read and print the data after which we have to calculate the average marks per subject
+```c
+#include<stdio.h>
+struct Student {
+    char name[100];
+    char roll_no[100];
+    int marks[2];
+}
+int main(){
+    FILE *ptr;
+    ptr = fopen("student.txt","w");
+    int n;
+    printf("Enter the number of students :");
+    scanf("%d",&n);
+    struct Student names[n];
+    for (int i=0;i<n;i++){
+        printf("Enter the name of the student: ");
+        gets(n[i].name);
+        printf("Enter the roll no of the student: ");
+        gets(n[i].roll_no);
+        for (int j=0;j<2;j++){
+            printf("Enter the marks for subject %d: ",j+1);
+            scanf("%d",n[i].marks[j]);
+        }
+    }
+    fwrite(names,sizeof(struct Student),n,ptr);
+    fclose(ptr);
+    
+    // reopen to read the marks 
+    ptr=fopen("student.txt","r");
+    struct Students x[n];
+    fread(x,sizeof(Struct Student),n,ptr);
+    for (int i=0;i<n;i++){
+        printf("Name:%s",x[i].name);
+        printf("Roll Number: %s",x[i].roll_no);
+        for (int j=0;j<2;j++){
+            printf("Marks for subject ",x[i].marks[j]);
+            
+        }
+    }
+    //calculate the average of marks per subject
+    for (int j=0;j<2;j++){
+        for(inti=0;i<n;i++){
+            sum+=x[i].marks[j];
+        }
+        printf("Average marks for subject %d is %d",j+1,sum/n);
+    }
+    fclose(ptr);
+    
+
+
+}   
+```
+enum method in c 
+```c    
+#include <stdio.h>
+enum ErrorCode {On,Off};
+int main(){
+    enum ErrorCode status;
+    status = On;
+    printf("%d\n",status);
+    status = Off;
+    printf("%d\n",status);
+    return 0;
+}
+```      
+Create a union and compare the size with an identical structure
+```c
+#include<stdio.h>
+union Student {
+    char name[100];
+    char roll_no[100];
+    int marks[2];
+};
+struct Students {
+    char name[100];
+    char roll_no[100];
+    int marks[2];
+};
+int main(){
+    union Student s1;
+    printf("%d\n",sizeof(s1));
+    struct Students s2;
+    printf("%d\n",sizeof(s2));
+    return 0;
+}
+```
